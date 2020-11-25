@@ -23,6 +23,7 @@ class _RandomWordsState extends State<RandomWords> {
   final _suggestions = <WordPair>[];
   final _saved = Set<WordPair>();
   final _biggerFont = TextStyle(fontSize: 12.0);
+  var shapelist = ['Circle','Triangle','Square'];
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +33,7 @@ class _RandomWordsState extends State<RandomWords> {
         title: Text('Random Words Generator'),
         actions: [
           IconButton(icon: Icon(Icons.list), onPressed: _pushSaved),
+          IconButton(icon: Icon(Icons.ac_unit_rounded), onPressed: _openMeasurement),
         ],
       ),
       body: _buildSuggestions(),
@@ -58,6 +60,36 @@ class _RandomWordsState extends State<RandomWords> {
         body: ListView(children: divided),
       );
     }));
+  }
+
+  void _openMeasurement() {
+    var values = buildList();
+    Navigator.of(context).push(MaterialPageRoute(builder:(BuildContext area){
+      return Scaffold(
+        appBar: AppBar(
+          title: Text('Area'),
+
+
+        ) ,
+        body: ListView.builder(
+          itemCount: shapelist.length,
+          itemBuilder: (context, i){
+            return ListTile(
+              title: Text(shapelist[i]),
+              onTap: circle(),
+            );
+          },
+        ),
+    );
+    }));
+  }
+
+  buildList() {
+
+    return shapelist;
+    //return ListView.builder(
+
+    //)
   }
 
   Widget _buildSuggestions() {
