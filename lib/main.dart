@@ -76,11 +76,22 @@ class _RandomWordsState extends State<RandomWords> {
           itemBuilder: (context, i){
             return ListTile(
               title: Text(shapelist[i]),
-              onTap: circle(),
+              onTap: navigateToArea,
             );
           },
         ),
     );
+    }));
+  }
+
+  void navigateToArea(String ) {
+    Navigator.of(context).push(MaterialPageRoute(builder:(BuildContext builder){
+      return Scaffold(
+        appBar: AppBar(
+          title: Text('Area of Circle'),
+        ),
+       // body: ,
+      );
     }));
   }
 
